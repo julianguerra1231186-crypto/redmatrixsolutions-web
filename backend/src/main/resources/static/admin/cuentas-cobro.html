@@ -47,25 +47,26 @@
           </div>
         </div>
 
-        <div class="form-grid">
-          <label>Numero de Cuenta de Cobro<input name="numero" required maxlength="60"></label>
+        <input type="hidden" name="numero" value="002">
+        <input type="hidden" name="ciudad" value="Neiva">
+        <input type="hidden" name="ciudadCliente" value="Neiva-Huila">
+        <input type="hidden" name="asunto" value="Cobro por servicios de creacion y edicion de contenido audiovisual para redes sociales.">
+        <input type="hidden" name="conceptoServicio" value="Plantilla fija Trinity FS">
+        <input type="hidden" name="marcasServicios" value="Lava Autos La 9&#10;Trinity FS&#10;Top Luxury Wash">
+        <input type="hidden" name="actividadesDesarrolladas" value="Grabacion de material publicitario.&#10;Edicion profesional de videos para redes sociales.&#10;Adaptacion de formatos para Facebook, Instagram y WhatsApp.&#10;Optimizacion de piezas audiovisuales para campanas digitales.&#10;Entrega de contenido final listo para publicacion.">
+        <input type="hidden" name="valorTotalServicio">
+        <input type="hidden" name="observaciones" value="Plantilla fija segun documento base Trinity FS.">
+        <input type="hidden" name="medioPago" value="Llave Bre-B">
+        <input type="hidden" name="numeroMedioPago" value="1000188124 (Documento de identidad)">
+        <input type="hidden" name="titularCuenta" value="JULIAN ANDRES GUERRA GARCIA">
+        <input type="hidden" name="documentoIdentidad" value="1000188124">
+        <input type="hidden" name="responsable" value="Julian Andres Guerra Garcia">
+        <input type="hidden" name="firma" value="Julian Andres Guerra Garcia">
+
+        <div class="form-grid template-grid">
           <label>Fecha<input name="fecha" type="date" required></label>
-          <label>Ciudad<input name="ciudad" required maxlength="120" value="Neiva"></label>
-          <label>Empresa o cliente<input name="cliente" required maxlength="180"></label>
-          <label>Ciudad del cliente<input name="ciudadCliente" required maxlength="120"></label>
-          <label>Asunto<input name="asunto" required maxlength="220"></label>
-          <label class="span-2">Concepto del servicio<textarea name="conceptoServicio" required maxlength="1400" rows="4"></textarea></label>
-          <label class="span-2">Lista de marcas o servicios incluidos<textarea name="marcasServicios" rows="3" placeholder="Una marca o servicio por linea"></textarea></label>
-          <label class="span-2">Actividades desarrolladas<textarea name="actividadesDesarrolladas" rows="4" placeholder="Una actividad por linea"></textarea></label>
-          <label>Valor total del servicio<input name="valorTotalServicio" type="text" inputmode="numeric" class="money-input" placeholder="$ 0" required></label>
+          <label>Nombre del cliente<input name="cliente" required maxlength="180" placeholder="TRINITY FABRICA DE SOFTWARE S.A.S."></label>
           <label>Valor a pagar<input name="valorPagar" type="text" inputmode="numeric" class="money-input" placeholder="$ 0" required></label>
-          <label class="span-2">Observaciones<textarea name="observaciones" maxlength="1200" rows="3"></textarea></label>
-          <label>Medio de pago<input name="medioPago" required maxlength="120" value="Bre-B"></label>
-          <label>Numero del medio de pago<input name="numeroMedioPago" required maxlength="120"></label>
-          <label>Titular de la cuenta<input name="titularCuenta" required maxlength="180"></label>
-          <label>Documento de identidad<input name="documentoIdentidad" required maxlength="80"></label>
-          <label>Nombre del responsable<input name="responsable" required maxlength="180" value="Julian Guerra"></label>
-          <label>Firma<input name="firma" required maxlength="180" value="Julian Guerra"></label>
         </div>
 
         <div class="button-row form-actions">

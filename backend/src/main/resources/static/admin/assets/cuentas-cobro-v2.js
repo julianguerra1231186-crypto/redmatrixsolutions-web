@@ -125,9 +125,13 @@ function resetForm() {
   form.reset();
   form.fecha.valueAsDate = new Date();
   form.ciudad.value = 'Neiva';
-  form.medioPago.value = 'Bre-B';
-  form.responsable.value = 'Julian Guerra';
-  form.firma.value = 'Julian Guerra';
+  form.ciudadCliente.value = 'Neiva-Huila';
+  form.medioPago.value = 'Llave Bre-B';
+  form.numeroMedioPago.value = '1000188124 (Documento de identidad)';
+  form.titularCuenta.value = 'JULIAN ANDRES GUERRA GARCIA';
+  form.documentoIdentidad.value = '1000188124';
+  form.responsable.value = 'Julian Andres Guerra Garcia';
+  form.firma.value = 'Julian Andres Guerra Garcia';
   document.querySelector('[data-form-title]').textContent = 'Nueva cuenta';
   updateLivePreview();
 }
@@ -187,52 +191,45 @@ function normalizeActionId(id) {
 
 function readForm() {
   const data = Object.fromEntries(new FormData(form).entries());
+  const valorPagar = parseMoney(data.valorPagar);
   return {
     ...data,
     marcasServicios: splitLines(data.marcasServicios),
     actividadesDesarrolladas: splitLines(data.actividadesDesarrolladas),
-    valorTotalServicio: parseMoney(data.valorTotalServicio),
-    valorPagar: parseMoney(data.valorPagar)
+    valorTotalServicio: valorPagar * 2,
+    valorPagar
   };
 }
 
 function updateLivePreview() {
   const data = readForm();
-  const marcas = data.marcasServicios.length ? data.marcasServicios : ['Marca o servicio pendiente'];
-  const actividades = data.actividadesDesarrolladas.length ? data.actividadesDesarrolladas : ['Actividad pendiente'];
 
   livePreview.innerHTML = `
     <div class="document-preview__header">
-      <div><div class="document-preview__brand">RED MATRIX SOLUTIONS</div><span>Cuenta de cobro corporativa</span></div>
+      <div><div class="document-preview__brand">RED MATRIX SOLUTIONS</div><span>Plantilla fija Trinity FS</span></div>
       <div><span class="document-preview__label">Fecha</span><span class="document-preview__value">${escapeHtml(formatDate(data.fecha))}</span></div>
     </div>
-    <h3>CUENTA DE COBRO</h3>
+    <h3>CUENTA DE COBRO No. 002</h3>
     <div class="document-preview__meta document-preview__grid">
-      ${previewField('No.', data.numero || 'Pendiente')}
-      ${previewField('Ciudad', data.ciudad || 'Neiva')}
+      ${previewField('Ciudad', 'Neiva, Huila')}
       ${previewField('Cliente', data.cliente || 'Nombre del cliente')}
+      ${previewField('Valor a pagar', formatMoney(data.valorPagar))}
     </div>
-    <div class="document-preview__box">
-      ${previewField('Ciudad del cliente', data.ciudadCliente || 'Pendiente')}
-      ${previewField('Asunto', data.asunto || 'Pendiente')}
-    </div>
-    ${previewSection('Concepto del servicio', data.conceptoServicio || 'Describe aqui el servicio prestado.')}
-    ${previewList('Marcas o servicios incluidos', marcas)}
-    ${previewList('Actividades desarrolladas', actividades)}
+    ${previewSection('Asunto', 'Cobro por servicios de creacion y edicion de contenido audiovisual para redes sociales.')}
+    ${previewList('Marcas incluidas', ['Lava Autos La 9', 'Trinity FS', 'Top Luxury Wash'])}
     <div class="document-preview__amounts">
-      <div class="document-preview__amount"><span class="document-preview__label">Valor total del servicio</span><strong>${formatMoney(data.valorTotalServicio)}</strong></div>
-      <div class="document-preview__amount document-preview__amount--main"><span class="document-preview__label">Valor a pagar</span><strong>${formatMoney(data.valorPagar)}</strong></div>
+      <div class="document-preview__amount"><span class="document-preview__label">Valor total acordado</span><strong>${formatMoney(data.valorTotalServicio)}</strong></div>
+      <div class="document-preview__amount document-preview__amount--main"><span class="document-preview__label">Cuota / valor a pagar</span><strong>${formatMoney(data.valorPagar)}</strong></div>
     </div>
-    ${previewSection('Observaciones', data.observaciones || 'Sin observaciones adicionales.')}
     <div class="document-preview__box document-preview__grid">
-      ${previewField('Medio de pago', data.medioPago || 'Bre-B')}
-      ${previewField('Numero', data.numeroMedioPago || 'Pendiente')}
-      ${previewField('Titular', data.titularCuenta || 'Pendiente')}
+      ${previewField('Medio de pago', 'Llave Bre-B')}
+      ${previewField('Numero', '1000188124')}
+      ${previewField('Titular', 'JULIAN ANDRES GUERRA GARCIA')}
     </div>
     <div class="document-preview__signature">
       <div>______________________________</div>
-      <div>${escapeHtml(data.responsable || 'Julian Guerra')}</div>
-      <small>Firma: ${escapeHtml(data.firma || 'Julian Guerra')}</small>
+      <div>${escapeHtml(data.responsable || 'Julian Andres Guerra Garcia')}</div>
+      <small>Firma: ${escapeHtml(data.firma || 'Julian Andres Guerra Garcia')}</small>
     </div>
   `;
 }
@@ -291,8 +288,6 @@ function renderClients() {
 
 function useClient(client) {
   form.cliente.value = client.nombreCliente;
-  form.asunto.value = form.asunto.value || `Cuenta de cobro por servicios prestados a ${client.empresaCliente}`;
-  form.valorTotalServicio.value = formatMoney(client.valorCliente);
   form.valorPagar.value = formatMoney(client.valorCliente);
   form.observaciones.value = client.observacionesCliente || form.observaciones.value;
   updateLivePreview();
