@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuentas de Cobro | RedMatrixSolutions</title>
+  <link rel="stylesheet" href="/admin/assets/admin.css">
+</head>
+<body class="admin-app">
+  <header class="admin-header">
+    <div class="brand-lockup">
+      <img src="/img/sinfondo.png" alt="RedMatrixSolutions">
+      <div>
+        <strong>RED MATRIX</strong>
+        <span>SOLUTIONS</span>
+      </div>
+    </div>
+    <div class="admin-header__actions">
+      <a href="/" class="ghost-link">Sitio publico</a>
+      <form method="post" action="/admin/logout">
+        <button type="submit" class="ghost-button">Salir</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="admin-layout">
+    <section class="panel hero-panel">
+      <div>
+        <span class="eyebrow">Modulo administrativo</span>
+        <h1>Cuentas de Cobro</h1>
+        <p>Genera, guarda, consulta y reimprime documentos profesionales con la identidad visual de RedMatrixSolutions.</p>
+      </div>
+      <button class="primary-button" data-new>Nuevo documento</button>
+    </section>
+
+    <section class="workspace">
+      <form class="panel account-form" id="accountForm">
+        <input type="hidden" name="id">
+        <div class="form-head">
+          <div>
+            <span class="eyebrow">Formulario</span>
+            <h2 data-form-title>Nueva cuenta</h2>
+          </div>
+          <div class="button-row">
+            <button type="button" class="secondary-button" data-cancel>Cancelar</button>
+            <button type="submit" class="primary-button">Guardar</button>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <label>Numero de Cuenta de Cobro<input name="numero" required maxlength="60"></label>
+          <label>Fecha<input name="fecha" type="date" required></label>
+          <label>Ciudad<input name="ciudad" required maxlength="120" value="Neiva"></label>
+          <label>Empresa o cliente<input name="cliente" required maxlength="180"></label>
+          <label>Ciudad del cliente<input name="ciudadCliente" required maxlength="120"></label>
+          <label>Asunto<input name="asunto" required maxlength="220"></label>
+          <label class="span-2">Concepto del servicio<textarea name="conceptoServicio" required maxlength="1400" rows="4"></textarea></label>
+          <label class="span-2">Lista de marcas o servicios incluidos<textarea name="marcasServicios" rows="3" placeholder="Una marca o servicio por linea"></textarea></label>
+          <label class="span-2">Actividades desarrolladas<textarea name="actividadesDesarrolladas" rows="4" placeholder="Una actividad por linea"></textarea></label>
+          <label>Valor total del servicio<input name="valorTotalServicio" type="text" inputmode="numeric" class="money-input" placeholder="$ 0" required></label>
+          <label>Valor a pagar<input name="valorPagar" type="text" inputmode="numeric" class="money-input" placeholder="$ 0" required></label>
+          <label class="span-2">Observaciones<textarea name="observaciones" maxlength="1200" rows="3"></textarea></label>
+          <label>Medio de pago<input name="medioPago" required maxlength="120" value="Bre-B"></label>
+          <label>Numero del medio de pago<input name="numeroMedioPago" required maxlength="120"></label>
+          <label>Titular de la cuenta<input name="titularCuenta" required maxlength="180"></label>
+          <label>Documento de identidad<input name="documentoIdentidad" required maxlength="80"></label>
+          <label>Nombre del responsable<input name="responsable" required maxlength="180" value="Julian Guerra"></label>
+          <label>Firma<input name="firma" required maxlength="180" value="Julian Guerra"></label>
+        </div>
+
+        <div class="button-row form-actions">
+          <button type="button" class="secondary-button" data-preview>Generar Vista Previa</button>
+          <button type="button" class="secondary-button" data-download>Descargar PDF</button>
+          <button type="button" class="secondary-button" data-print>Imprimir</button>
+        </div>
+      </form>
+
+      <aside class="panel history-panel">
+        <div class="form-head">
+          <div>
+            <span class="eyebrow">Historial</span>
+            <h2>Documentos guardados</h2>
+          </div>
+        </div>
+        <div class="filters">
+          <input type="search" data-search placeholder="Buscar por numero o cliente">
+          <input type="date" data-date-filter>
+        </div>
+        <div class="history-list" data-history></div>
+      </aside>
+    </section>
+
+    <section class="panel clients-panel">
+      <div class="form-head">
+        <div>
+          <span class="eyebrow">Inventario comercial</span>
+          <h2>Clientes registrados</h2>
+          <p>Guarda clientes frecuentes para consultar valores, empresas y observaciones internas.</p>
+        </div>
+      </div>
+      <form class="client-form" data-client-form>
+        <label>Nombre del cliente<input name="nombreCliente" maxlength="180" required></label>
+        <label>Empresa<input name="empresaCliente" maxlength="180" required></label>
+        <label>Valor<input name="valorCliente" type="text" inputmode="numeric" class="money-input" placeholder="$ 0" required></label>
+        <label class="span-2">Observaciones<textarea name="observacionesCliente" rows="3" maxlength="900" placeholder="Notas, estado comercial, acuerdos o pendientes"></textarea></label>
+        <div class="button-row span-2">
+          <button type="submit" class="primary-button">Registrar cliente</button>
+          <button type="button" class="secondary-button" data-clear-client>Limpiar</button>
+        </div>
+      </form>
+      <div class="client-list" data-client-list></div>
+    </section>
+
+    <section class="panel preview-panel">
+      <div class="form-head">
+        <div>
+          <span class="eyebrow">Vista previa</span>
+          <h2>Documento en vivo</h2>
+        </div>
+        <div class="button-row">
+          <button type="button" class="secondary-button" data-download>Descargar</button>
+          <button type="button" class="secondary-button" data-print>Imprimir</button>
+        </div>
+      </div>
+      <article class="document-preview" data-live-preview></article>
+      <h3 class="pdf-title">PDF generado</h3>
+      <iframe title="Vista previa de la cuenta de cobro" data-pdf-frame></iframe>
+    </section>
+  </main>
+
+  <div class="toast" data-toast></div>
+  <script src="/admin/assets/cuentas-cobro-v2.js"></script>
+</body>
+</html>
