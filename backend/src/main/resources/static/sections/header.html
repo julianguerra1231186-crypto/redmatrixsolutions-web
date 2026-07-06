@@ -1,0 +1,71 @@
+﻿<header class="header" id="header" role="banner">
+  <div class="container">
+    <div class="header__inner">
+
+      <!-- Logo -->
+      <a href="#inicio" class="header__logo" aria-label="RedMatrixSolutions - Inicio">
+        <div class="header__logo-mark">
+          <img src="./img/sinfondo.png" alt="RM" style="height:42px;width:auto;display:block;">
+          <div class="header__logo-glow"></div>
+        </div>
+        <div class="header__logo-text">
+          <span class="header__logo-name">RED MATRIX</span>
+          <span class="header__logo-tagline">SOLUTIONS</span>
+        </div>
+      </a>
+
+      <!-- Navegacion central con animacion -->
+      <nav class="header__nav header__nav--animated" role="navigation" aria-label="Navegacion principal">
+        <a href="#inicio"       class="header__nav-link active" data-section="inicio">Inicio</a>
+        <a href="#quienes-somos" class="header__nav-link"       data-section="quienes-somos">Quienes Somos</a>
+        <a href="#servicios"    class="header__nav-link"        data-section="servicios">Servicios</a>
+        <a href="#conferencias" class="header__nav-link"        data-section="conferencias">Conferencias</a>
+        <a href="#contacto"     class="header__nav-link"        data-section="contacto">Contacto</a>
+      </nav>
+
+      <!-- Telefono a la derecha -->
+      <div class="header__actions">
+        <a href="tel:+573115243424" class="header__phone" aria-label="Llamar a RedMatrixSolutions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81
+                     19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81
+                     a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45
+                     c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+          </svg>
+          +57 311 524 3424
+        </a>
+
+        <!-- Hamburguesa (solo movil) -->
+        <button class="header__hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
+                aria-controls="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu movil -->
+  <div class="header__mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu de navegacion movil">
+    <nav class="header__mobile-nav" aria-label="Navegacion movil">
+      <a href="#inicio"        class="header__mobile-nav-link" data-section="inicio">Inicio</a>
+      <a href="#quienes-somos" class="header__mobile-nav-link" data-section="quienes-somos">Quienes Somos</a>
+      <a href="#servicios"     class="header__mobile-nav-link" data-section="servicios">Servicios</a>
+      <a href="#conferencias"  class="header__mobile-nav-link" data-section="conferencias">Conferencias</a>
+      <a href="#contacto"      class="header__mobile-nav-link" data-section="contacto">Contacto</a>
+    </nav>
+    <div class="header__mobile-footer">
+      <a href="tel:+573115243424" class="header__phone" aria-label="Llamar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+        +57 311 524 3424
+      </a>
+    </div>
+  </div>
+</header>
+
+

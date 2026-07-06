@@ -1,0 +1,185 @@
+/* ============================================================
+   PILARES.CSS — RedMatrixSolutions
+   ============================================================ */
+
+.pilares {
+  background: var(--color-gray-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.pilares::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark), var(--color-accent));
+}
+
+.pilares__header {
+  text-align: center;
+  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+}
+
+.pilares__header .section-label {
+  justify-content: center;
+}
+
+.pilares__header .section-label::before {
+  display: none;
+}
+
+.pilares__header .section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.pilares__header .section-subtitle {
+  margin-inline: auto;
+}
+
+/* Grid de tarjetas */
+.pilares__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+/* Tarjeta */
+.pilar-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pilar-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.pilar-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+  transform-origin: left;
+}
+
+.pilar-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Imagen */
+.pilar-card__img {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.pilar-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.pilar-card:hover .pilar-card__img img {
+  transform: scale(1.06);
+}
+
+.pilar-card__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(10,22,40,.6) 100%);
+}
+
+/* Icono sobre imagen */
+.pilar-card__icon {
+  position: absolute;
+  bottom: calc(-1 * var(--space-6));
+  left: var(--space-6);
+  width: 52px;
+  height: 52px;
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xl);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  z-index: 1;
+}
+
+/* Cuerpo */
+.pilar-card__body {
+  padding: calc(var(--space-6) + var(--space-4)) var(--space-6) var(--space-6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Línea divisoria amarilla */
+.pilar-card__divider {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-4);
+}
+
+.pilar-card__title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+.pilar-card__description {
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+  line-height: var(--lh-relaxed);
+  flex: 1;
+}
+
+.pilar-card__footer {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  transition: gap var(--transition-base);
+}
+
+.pilar-card:hover .pilar-card__footer {
+  gap: var(--space-3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pilares__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .pilares__grid { grid-template-columns: 1fr; }
+}

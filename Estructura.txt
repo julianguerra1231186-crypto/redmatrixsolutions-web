@@ -1,0 +1,14 @@
+static/
+├── index.html                    ← Página padre, carga todo dinámicamente
+├── css/  (12 archivos)
+│   ├── global.css                ← Variables, reset, utilidades, WhatsApp, sidebar
+│   └── [header|hero|about|pilares|servicios|servicios-detalle|
+│        testimonios|clientes|contacto|footer|servicios-detalle].css
+├── js/  (10 archivos)
+│   ├── main.js                   ← Orquestador: fetch de secciones + scripts
+│   └── [header|hero|about|pilares|servicios|servicios-detalle|
+│        testimonios|clientes|contacto].js
+├── sections/  (10 archivos HTML)
+│   └── [header|hero|about|pilares|servicios|servicios-detalle|
+│        testimonios|clientes|contacto|footer].html
+└── img/  (imágenes del proyecto + carpetas pilares/servicios/clientes/recursos)

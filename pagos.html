@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagos seguros | Red Matrix Solutions</title>
+  <link rel="icon" href="backend/src/main/resources/static/img/sinfondo.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="pagos">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="inicio.html"><img src="backend/src/main/resources/static/img/sinfondo.png" alt="Red Matrix Solutions"><span><strong>RED MATRIX</strong><span>SOLUTIONS</span></span></a>
+      <nav class="nav-links" data-nav-links aria-label="Navegación principal">
+        <a href="inicio.html" data-nav="inicio">Inicio</a>
+        <a href="nosotros.html" data-nav="nosotros">Nosotros</a>
+        <a href="servicios.html" data-nav="servicios">Servicios</a>
+        <a href="pagos.html" data-nav="pagos">Pagos</a>
+        <a href="contacto.html" data-nav="contacto">Contacto</a>
+      </nav>
+      <div class="nav-actions"><a class="btn btn-gold" href="https://wa.me/573115243424?text=Hola%2C%20quiero%20confirmar%20un%20pago" target="_blank" rel="noopener">Confirmar pago</a><button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><span></span><span></span><span></span></button></div>
+    </div>
+  </header>
+  <main>
+    <section class="page-hero">
+      <div class="container fade-up">
+        <span class="eyebrow">Pagos</span>
+        <h1>Realiza tu pago de forma rápida y segura.</h1>
+        <p>Escanea el código QR del método que prefieras. Después de realizar el pago, envía el comprobante por WhatsApp para validar tu servicio.</p>
+      </div>
+    </section>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="payment-grid">
+          <article class="card qr-card fade-up">
+            <h2>Nequi</h2>
+            <p>Escanea este QR desde Nequi para realizar tu pago de forma rápida y segura.</p>
+            <button class="qr-zoom-trigger" type="button" data-qr-fullscreen="backend/src/main/resources/static/img/qr-nequi-solo.png" aria-label="Ver QR Nequi en pantalla completa">
+              <img src="backend/src/main/resources/static/img/qr-nequi-solo.png" alt="QR de pago Nequi">
+              <span>Click para ampliar</span>
+            </button>
+          </article>
+          <article class="card qr-card fade-up">
+            <h2>BreB</h2>
+            <p>También puedes pagar por BreB escaneando este QR desde tu entidad bancaria.</p>
+            <button class="qr-zoom-trigger" type="button" data-qr-fullscreen="backend/src/main/resources/static/img/qr-breb-solo.png" aria-label="Ver QR BreB en pantalla completa">
+              <img src="backend/src/main/resources/static/img/qr-breb-solo.png" alt="QR de pago BreB">
+              <span>Click para ampliar</span>
+            </button>
+          </article>
+        </div>
+        <div class="payment-alert fade-up">
+          <div><strong>Importante:</strong> envía el comprobante de pago por WhatsApp con tu nombre, paquete contratado y valor pagado.</div>
+          <a class="btn btn-whatsapp" href="https://wa.me/573115243424?text=Hola%2C%20adjunto%20mi%20comprobante%20de%20pago" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><p>© <span data-year></span> Red Matrix Solutions.</p><nav class="footer-links"><a href="servicios.html">Servicios</a><a href="contacto.html">Contacto</a></nav></div></footer>
+  <script src="js/main.js"></script><script src="js/chatbot.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

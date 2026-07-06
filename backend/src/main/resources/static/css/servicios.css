@@ -1,0 +1,209 @@
+/* ============================================================
+   SERVICIOS.CSS — RedMatrixSolutions
+   ============================================================ */
+
+.servicios {
+  background: var(--color-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.servicios::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245,197,24,.05) 0%, transparent 70%);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.servicios::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(26,58,110,.6) 0%, transparent 70%);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.servicios__header {
+  text-align: center;
+  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+}
+
+.servicios__header .section-label {
+  justify-content: center;
+}
+
+.servicios__header .section-label::before,
+.servicios__header .section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.servicios__header .section-title {
+  color: var(--color-white);
+}
+
+/* Lista de servicios numerados */
+.servicios__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  position: relative;
+  z-index: 1;
+}
+
+.servicio-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-8);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.03);
+  transition: all var(--transition-base);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.servicio-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transition: transform var(--transition-base);
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+}
+
+.servicio-item:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(245,197,24,.2);
+  transform: translateX(6px);
+}
+
+.servicio-item:hover::before {
+  transform: scaleY(1);
+}
+
+/* Número */
+.servicio-item__number {
+  width: 52px;
+  height: 52px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  letter-spacing: .02em;
+}
+
+/* Icono con borde punteado */
+.servicio-item__icon-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.servicio-item__icon-border {
+  position: absolute;
+  inset: 0;
+  border: 2px dashed rgba(245,197,24,.4);
+  border-radius: var(--radius-full);
+  animation: rotate-slow 12s linear infinite;
+}
+
+.servicio-item__icon {
+  position: absolute;
+  inset: 8px;
+  background: rgba(245,197,24,.1);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xl);
+  color: var(--color-accent);
+  transition: background var(--transition-base);
+}
+
+.servicio-item:hover .servicio-item__icon {
+  background: rgba(245,197,24,.2);
+}
+
+/* Contenido */
+.servicio-item__content {
+  flex: 1;
+}
+
+.servicio-item__title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+}
+
+.servicio-item__description {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,.60);
+  line-height: var(--lh-relaxed);
+  max-width: 500px;
+}
+
+/* Flecha */
+.servicio-item__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255,255,255,.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.4);
+  font-size: var(--fs-md);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.servicio-item:hover .servicio-item__arrow {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .servicio-item {
+    grid-template-columns: auto 1fr;
+    padding: var(--space-5) var(--space-5);
+    gap: var(--space-4);
+  }
+  .servicio-item__icon-wrap { display: none; }
+  .servicio-item__arrow { display: none; }
+}
+
+@media (max-width: 480px) {
+  .servicio-item { transform: none !important; }
+}

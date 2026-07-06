@@ -1,0 +1,170 @@
+/* ============================================================
+   CLIENTES.CSS — RedMatrixSolutions
+   ============================================================ */
+
+.clientes {
+  background: var(--color-white);
+}
+
+.clientes__header {
+  text-align: center;
+  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+}
+
+.clientes__header .section-label {
+  justify-content: center;
+}
+
+.clientes__header .section-label::before,
+.clientes__header .section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.clientes__header .section-subtitle {
+  margin-inline: auto;
+}
+
+/* Grid de logos */
+.clientes__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.cliente-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  background: var(--color-white);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  min-height: 100px;
+}
+
+.cliente-logo:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.cliente-logo img {
+  max-height: 48px;
+  width: auto;
+  filter: grayscale(100%) opacity(0.5);
+  transition: filter var(--transition-base);
+  object-fit: contain;
+}
+
+.cliente-logo:hover img {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Placeholder cuando no hay imagen */
+.cliente-logo__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-gray-400);
+  transition: color var(--transition-base);
+}
+
+.cliente-logo:hover .cliente-logo__placeholder {
+  color: var(--color-primary);
+}
+
+.cliente-logo__placeholder-icon {
+  font-size: var(--fs-2xl);
+}
+
+.cliente-logo__placeholder-name {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* Contador de confianza */
+.clientes__trust {
+  margin-top: var(--space-16);
+  background: var(--color-gray-100);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10) var(--space-12);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.clientes__trust::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark), var(--color-accent));
+  border-radius: var(--radius-full) var(--radius-full) 0 0;
+}
+
+.clientes__trust-item {
+  position: relative;
+}
+
+.clientes__trust-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 1px;
+  background: var(--color-gray-200);
+}
+
+.clientes__trust-number {
+  font-family: var(--font-display);
+  font-size: clamp(var(--fs-2xl), 3vw, var(--fs-4xl));
+  font-weight: var(--fw-extrabold);
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.clientes__trust-number span {
+  color: var(--color-accent);
+}
+
+.clientes__trust-label {
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+  font-weight: var(--fw-medium);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .clientes__grid { grid-template-columns: repeat(4, 1fr); }
+  .clientes__trust { grid-template-columns: repeat(2, 1fr); }
+  .clientes__trust-item:nth-child(2)::after { display: none; }
+}
+
+@media (max-width: 768px) {
+  .clientes__grid { grid-template-columns: repeat(3, 1fr); }
+  .clientes__trust { padding: var(--space-8); gap: var(--space-6); }
+}
+
+@media (max-width: 480px) {
+  .clientes__grid { grid-template-columns: repeat(2, 1fr); }
+  .clientes__trust { grid-template-columns: repeat(2, 1fr); }
+  .clientes__trust-item::after { display: none !important; }
+}

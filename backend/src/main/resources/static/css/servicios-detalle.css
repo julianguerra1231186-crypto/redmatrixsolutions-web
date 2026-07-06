@@ -1,0 +1,207 @@
+/* ============================================================
+   SERVICIOS-DETALLE.CSS — RedMatrixSolutions
+   ============================================================ */
+
+.servicios-detalle {
+  background: var(--color-white);
+}
+
+.servicios-detalle__header {
+  text-align: center;
+  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+}
+
+.servicios-detalle__header .section-label {
+  justify-content: center;
+}
+
+.servicios-detalle__header .section-label::before,
+.servicios-detalle__header .section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.servicios-detalle__header .section-subtitle {
+  margin-inline: auto;
+}
+
+/* Grid de tarjetas visuales */
+.servicios-detalle__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+/* Tarjeta visual */
+.servicio-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.servicio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.servicio-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.servicio-card:hover .servicio-card__img {
+  transform: scale(1.08);
+}
+
+.servicio-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,22,40,.85) 0%, rgba(10,22,40,.3) 50%, transparent 100%);
+  transition: background var(--transition-base);
+}
+
+.servicio-card:hover .servicio-card__overlay {
+  background: linear-gradient(to top, rgba(10,22,40,.92) 0%, rgba(10,22,40,.5) 60%, rgba(10,22,40,.1) 100%);
+}
+
+.servicio-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-6);
+  transform: translateY(0);
+  transition: transform var(--transition-base);
+}
+
+.servicio-card__icon {
+  width: 44px;
+  height: 44px;
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  box-shadow: var(--shadow-accent);
+}
+
+.servicio-card__label {
+  display: inline-block;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.servicio-card__description {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,.80);
+  line-height: var(--lh-snug);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow), opacity var(--transition-base);
+  opacity: 0;
+}
+
+.servicio-card:hover .servicio-card__description {
+  max-height: 80px;
+  opacity: 1;
+}
+
+/* Tarjeta adicional — Pauta Digital */
+.servicios-detalle__extra {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-12);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-8);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.servicios-detalle__extra::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(245,197,24,.12) 0%, transparent 70%);
+  border-radius: var(--radius-full);
+}
+
+.servicios-detalle__extra-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(245,197,24,.15);
+  border: 1px solid rgba(245,197,24,.3);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: var(--space-4);
+}
+
+.servicios-detalle__extra-title {
+  font-size: clamp(var(--fs-xl), 2.5vw, var(--fs-3xl));
+  font-weight: var(--fw-extrabold);
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+}
+
+.servicios-detalle__extra-title span {
+  color: var(--color-accent);
+}
+
+.servicios-detalle__extra-text {
+  font-size: var(--fs-base);
+  color: rgba(255,255,255,.70);
+  line-height: var(--lh-relaxed);
+  max-width: 500px;
+}
+
+.servicios-detalle__extra-cta {
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .servicios-detalle__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .servicios-detalle__extra {
+    grid-template-columns: 1fr;
+    padding: var(--space-8);
+  }
+}
+
+@media (max-width: 640px) {
+  .servicios-detalle__grid { grid-template-columns: 1fr; }
+  .servicio-card { aspect-ratio: 16/9; }
+}
