@@ -683,7 +683,7 @@ body[data-page="nosotros"] .page-hero {
   background:
     linear-gradient(90deg, rgba(5, 9, 20, .92) 0%, rgba(7, 16, 32, .78) 46%, rgba(7, 16, 32, .48) 100%),
     radial-gradient(circle at 12% 14%, rgba(212, 25, 42, .3), transparent 30%),
-    url("../../../../../Portadas/Nosotros.png") center center / cover no-repeat;
+    url("../img/portadas/Nosotros.png") center center / cover no-repeat;
   border-bottom: 1px solid rgba(245, 200, 76, .18);
 }
 body[data-page="quienes-somos"] .page-hero {
@@ -693,7 +693,7 @@ body[data-page="quienes-somos"] .page-hero {
   background:
     linear-gradient(90deg, rgba(5, 9, 20, .92) 0%, rgba(7, 16, 32, .78) 46%, rgba(7, 16, 32, .48) 100%),
     radial-gradient(circle at 12% 14%, rgba(212, 25, 42, .3), transparent 30%),
-    url("../../../../../Portadas/Nosotros.png") center center / cover no-repeat;
+    url("../img/portadas/Nosotros.png") center center / cover no-repeat;
   border-bottom: 1px solid rgba(245, 200, 76, .18);
 }
 body[data-page="servicios"] .page-hero {
@@ -703,7 +703,7 @@ body[data-page="servicios"] .page-hero {
   background:
     linear-gradient(90deg, rgba(5, 9, 20, .94) 0%, rgba(7, 16, 32, .8) 46%, rgba(7, 16, 32, .52) 100%),
     radial-gradient(circle at 12% 14%, rgba(245, 200, 76, .24), transparent 30%),
-    url("../../../../../Portadas/Servicios.png") center center / cover no-repeat;
+    url("../img/portadas/Servicios.png") center center / cover no-repeat;
   border-bottom: 1px solid rgba(245, 200, 76, .18);
 }
 body[data-page="pagos"] .page-hero {
@@ -713,7 +713,7 @@ body[data-page="pagos"] .page-hero {
   background:
     linear-gradient(90deg, rgba(5, 9, 20, .94) 0%, rgba(7, 16, 32, .8) 48%, rgba(7, 16, 32, .5) 100%),
     radial-gradient(circle at 14% 16%, rgba(37, 211, 102, .2), transparent 28%),
-    url("../../../../../Portadas/Pagos.png") center center / cover no-repeat;
+    url("../img/portadas/Pagos.png") center center / cover no-repeat;
   border-bottom: 1px solid rgba(245, 200, 76, .18);
 }
 body[data-page="contacto"] .page-hero {
@@ -723,7 +723,7 @@ body[data-page="contacto"] .page-hero {
   background:
     linear-gradient(90deg, rgba(5, 9, 20, .94) 0%, rgba(7, 16, 32, .8) 48%, rgba(7, 16, 32, .5) 100%),
     radial-gradient(circle at 14% 16%, rgba(212, 25, 42, .28), transparent 30%),
-    url("../../../../../Portadas/Contactos.png") center center / cover no-repeat;
+    url("../img/portadas/Contactos.png") center center / cover no-repeat;
   border-bottom: 1px solid rgba(245, 200, 76, .18);
 }
 .page-hero h1 {

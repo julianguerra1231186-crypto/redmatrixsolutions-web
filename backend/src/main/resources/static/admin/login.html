@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador | RedMatrixSolutions</title>
+  <link rel="stylesheet" href="/admin/assets/admin.css">
+</head>
+<body class="admin-login">
+  <main class="login-shell">
+    <section class="login-card">
+      <div class="brand-lockup">
+        <img src="/img/sinfondo.png" alt="RedMatrixSolutions">
+        <div>
+          <strong>RED MATRIX</strong>
+          <span>SOLUTIONS</span>
+        </div>
+      </div>
+      <h1>Panel administrativo</h1>
+      <p>Acceso privado para generar cuentas de cobro corporativas.</p>
+      <form class="login-form" method="post" action="/admin/login">
+        <label>
+          Usuario
+          <input type="text" name="username" autocomplete="username" required>
+        </label>
+        <label>
+          Contrasena
+          <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit">Ingresar</button>
+      </form>
+      <p class="login-message" data-login-message></p>
+    </section>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const message = document.querySelector('[data-login-message]');
+    if (params.has('error')) message.textContent = 'Credenciales invalidas. Intenta nuevamente.';
+    if (params.has('logout')) message.textContent = 'Sesion cerrada correctamente.';
+  </script>
+</body>
+</html>
