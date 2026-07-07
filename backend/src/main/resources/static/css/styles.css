@@ -1302,24 +1302,27 @@ body[data-page="contacto"] .page-hero {
   z-index: 120;
   display: grid;
   place-items: center;
-  padding: 22px;
+  padding: clamp(10px, 2vw, 22px);
   background: rgba(3, 7, 16, .9);
   backdrop-filter: blur(14px);
   opacity: 0;
   pointer-events: none;
   transition: opacity .25s ease;
+  overflow: auto;
 }
 .qr-lightbox.open {
   opacity: 1;
   pointer-events: auto;
 }
 .qr-lightbox__content {
-  width: min(92vw, 720px);
+  width: min(94vw, 760px);
+  max-height: calc(100dvh - 24px);
   border: 1px solid rgba(245, 200, 76, .35);
   border-radius: var(--radius);
   background: linear-gradient(135deg, rgba(18, 63, 140, .22), rgba(7, 11, 22, .98));
   box-shadow: var(--shadow);
-  padding: clamp(18px, 4vw, 34px);
+  padding: clamp(14px, 3vw, 28px);
+  overflow: auto;
   transform: translateY(26px) scale(.92);
   transition: transform .28s cubic-bezier(.2, .8, .2, 1);
 }
@@ -1331,7 +1334,7 @@ body[data-page="contacto"] .page-hero {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 18px;
+  margin-bottom: clamp(10px, 2vh, 18px);
 }
 .qr-lightbox__top strong {
   color: var(--gold);
@@ -1348,7 +1351,9 @@ body[data-page="contacto"] .page-hero {
   font-size: 1.35rem;
 }
 .qr-lightbox img {
-  width: min(82vw, 560px);
+  display: block;
+  width: min(82vw, 620px);
+  max-height: min(70dvh, 620px);
   margin: 0 auto;
   aspect-ratio: 1;
   object-fit: contain;
@@ -1779,6 +1784,21 @@ textarea.field { min-height: 140px; resize: vertical; }
   .hero-actions .btn, .section-actions .btn, .package-actions .btn { width: 100%; }
   .payment-alert { display: block; }
   .payment-alert .btn { width: 100%; margin-top: 14px; }
+  .qr-lightbox {
+    align-items: start;
+    padding: 10px;
+  }
+  .qr-lightbox__content {
+    width: 100%;
+    max-height: calc(100dvh - 20px);
+  }
+  .qr-lightbox__top strong {
+    font-size: .95rem;
+  }
+  .qr-lightbox img {
+    width: min(88vw, 520px);
+    max-height: 68dvh;
+  }
   .join-team-cta { display: grid; }
   .join-team-cta .btn { width: 100%; }
   .social-dock {
